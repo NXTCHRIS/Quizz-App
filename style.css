@@ -85,7 +85,7 @@ table {
     display: flex;
     flex-direction: column;
     text-align: left;
-    gap: 10px;
+    gap: 20px;
     padding-bottom: 25px;
 }
 .btn {

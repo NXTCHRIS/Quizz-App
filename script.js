@@ -6,7 +6,7 @@ addEventListener("DOMContentLoaded", () => {
     const buttonList = document.getElementById('answers-buttons');
     const questionCounter = document.querySelector(".question-counter")
     const quiz = document.querySelector(".quiz")
-
+    nextButton.style.display = "none"
     async function getQuizData() {
             const response = await fetch("https://opentdb.com/api.php?amount=10&category=9&type=multiple");
             const data = await response.json();
@@ -15,6 +15,7 @@ addEventListener("DOMContentLoaded", () => {
                 currentQuestionIndex = 0;
                 score = 0;
                 nextButton.innerHTML = "Next"
+                nextButton.style.display = "block"
                 showQuestion();
                 showQCounter()
             }
@@ -50,7 +51,7 @@ addEventListener("DOMContentLoaded", () => {
             }
 
             addEventListener("click", (event) => {
-                if(event.target = "button"){
+                if(event.target = "button" && event.target.className === "btn"){
                     nextButton.style.display = "block"
                 }
             })
@@ -63,10 +64,23 @@ addEventListener("DOMContentLoaded", () => {
                 showAnswers();
                 showQCounter();
             })
+            addEventListener("click", (event) => {
+                    if(event.target = "button") {
+                        let correct  = data.results[currentQuestionIndex].correct_answer
+                    if(event.target.innerHTML === correct && event.target.className === "btn"){
+                        console.log(300)
+                        event.target.style.backgroundColor = "green"
+                    } else if (event.target.innerHTML !== correct & event.target.className === "btn") {
+                        event.target.style.backgroundColor = "red"
+                    }
+                    }
+                
+            })
             
             startQuiz();
             showQuestion();
             showAnswers();
+            console.log(data)
     }
     getQuizData()
 })
