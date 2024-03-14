@@ -117,3 +117,13 @@ table {
 .next-button:hover {
     background-color: black;
 }
+.question-counter {
+    display: block;
+    margin: auto;
+    padding: 10px 10px;
+    border-radius: 10px;
+    font-family:inherit;
+    color:black;
+    font-weight: 600;
+    text-align: center;
+}
