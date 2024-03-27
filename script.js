@@ -63,8 +63,8 @@ addEventListener("DOMContentLoaded", () => {
                     document.querySelector(".app-title").style.border = "none";
                     const refreshButton = document.createElement("button");
                     refreshButton.innerHTML = "Restart Game";
-                    refreshButton.classList.toggle("next-button")
                     document.querySelector(".app").appendChild(refreshButton);
+                    refreshButton.classList.toggle("next-button")
                     refreshButton.addEventListener('click', () => {
                         window.location.reload();
                     })
