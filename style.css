@@ -88,6 +88,7 @@ table {
     gap: 20px;
     padding-bottom: 25px;
 }
+
 .btn {
     text-align: left;
     color: black;
@@ -103,6 +104,7 @@ table {
     color: #EEEEEE;
     cursor: pointer;
 }
+
 .next-button {
     display: block;
     margin: auto;
@@ -126,4 +128,22 @@ table {
     color:black;
     font-weight: 600;
     text-align: center;
+}
+.correct {
+    background-color: green;
+}
+.wrong {
+    background-color: red;
+}
+.wrong:hover {
+    cursor: not-allowed;
+}
+.correct:hover {
+    cursor: not-allowed;
+}
+.rest {
+    background-color: white;
+}
+.rest:hover {
+    cursor: not-allowed;
 }
