@@ -100,9 +100,9 @@ table {
     font-weight:600;
 }
 .btn:hover {
-    background-color: #F4538A;
-    color: #EEEEEE;
     cursor: pointer;
+    border-color: #F4538A;
+    
 }
 
 .next-button {
