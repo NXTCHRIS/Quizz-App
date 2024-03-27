@@ -59,6 +59,14 @@ addEventListener("DOMContentLoaded", () => {
                 currentQuestionIndex++
                 if(currentQuestionIndex >= 10) {
                     quiz.style.display = "none"
+                    document.querySelector(".app-title").innerHTML = `Your score is ${score}/${data.results.length}`
+                    document.querySelector(".app-title").style.border = "none";
+                    const refreshButton = document.createElement("button");
+                    refreshButton.innerHTML = "Restart Game";
+                    document.querySelector(".app").appendChild(refreshButton);
+                    refreshButton.addEventListener('click', () => {
+                        window.location.reload();
+                    })
                 }
                 showQuestion();
                 showAnswers();
@@ -69,9 +77,30 @@ addEventListener("DOMContentLoaded", () => {
                         let correct  = data.results[currentQuestionIndex].correct_answer
                     if(event.target.innerHTML === correct && event.target.className === "btn"){
                         console.log(300)
-                        event.target.style.backgroundColor = "green"
+                        score++
+                        event.target.classList.toggle("correct");
+                        const disabledB = buttonList.childNodes;
+                        disabledB.forEach(btn => {
+                            if(btn.classList.contains("correct")) {
+                                btn.disabled = true;
+                            } else {
+                                btn.disabled = true;
+                                btn.classList.toggle("rest")
+                                console.log(1)
+                            }
+                        })
                     } else if (event.target.innerHTML !== correct & event.target.className === "btn") {
-                        event.target.style.backgroundColor = "red"
+                        event.target.classList.toggle("wrong");
+                        const disabledB = buttonList.childNodes;
+                        disabledB.forEach(btn => {
+                            if(btn.classList.contains("wrong")) {
+                                btn.disabled = true;
+                            } else {
+                                btn.disabled = true;
+                                btn.classList.toggle("rest")
+                                console.log(1)
+                            }
+                        })
                     }
                     }
                 
@@ -80,7 +109,6 @@ addEventListener("DOMContentLoaded", () => {
             startQuiz();
             showQuestion();
             showAnswers();
-            console.log(data)
     }
     getQuizData()
 })
